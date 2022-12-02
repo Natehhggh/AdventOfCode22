@@ -5,7 +5,6 @@ use std::cmp;
 
 fn main() {
     let path = "..Input.txt";
-    println!("path: {}",path);
     let lines = lines_from_file(path);
     let mut highest_calories: u32 = 0;
     let mut curr_calories: u32 = 0;
