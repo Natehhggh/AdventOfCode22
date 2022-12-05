@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "Day3.h"
 
 int main()
 {
@@ -9,11 +10,15 @@ int main()
 	FileReader reader = FileReader();
 
 	reader.Read("Data\\Day3.txt");
-
 	
 	std::vector<std::string> lines = reader.Lines();
 
-	std::cout << lines.at(0);
+	Day3 day3 = Day3();
+
+	int value = day3.CheckAllBags(lines);
+	
+
+	std::cout <<  "Value: " << value;
 
 	return 0;
 }

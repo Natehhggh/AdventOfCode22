@@ -16,12 +16,18 @@
     <Filter Include="Resource Files\Input">
       <UniqueIdentifier>{aedceb64-b524-4b6e-9b1d-a4f95a278933}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Days">
+      <UniqueIdentifier>{1046b253-76ec-40ff-977c-38689a15a82d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
