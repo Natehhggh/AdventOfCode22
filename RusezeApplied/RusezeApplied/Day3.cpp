@@ -2,18 +2,18 @@
 #include <unordered_set>
 
 
-int Day3::CheckAllBags(std::vector<std::string> bagLines)
+int Day3::CheckAllBagsPouches(std::vector<std::string> bagLines)
 {
 	int totalSum = 0;
 	for (auto bag : bagLines) {
-		totalSum += CheckBag(bag);
+		totalSum += CheckBagPouches(bag);
 	}
 
 	return totalSum;
 }
 
 
-int Day3::CheckBag(std::string bagString)
+int Day3::CheckBagPouches(std::string bagString)
 {
 		std::string leftPouch = bagString.substr(0, bagString.length() / 2);
 		std::string rightPouch = bagString.substr(bagString.length() / 2, bagString.length() / 2);
@@ -23,6 +23,47 @@ int Day3::CheckBag(std::string bagString)
 		
 
 	return GetOverlapSum(leftPouchSet, rightPouchSet);
+}
+
+
+int Day3::GetAllBadgeValues(std::vector<std::string> bagLines)
+{
+	int totalSum = 0;
+	int groupSize = 3;
+	std::vector<std::vector<std::string>> groups = std::vector<std::vector<std::string>>();
+
+	std::vector<std::string> newGroup = std::vector<std::string>();
+	for (auto &bag : bagLines) {
+		if (newGroup.size() < groupSize)
+		{
+			newGroup.push_back(bag);
+		}
+
+		if (newGroup.size() == groupSize)
+		{
+			groups.push_back(newGroup);
+			newGroup.clear();
+		}
+	}
+
+	for (auto &group : groups) {
+		totalSum += GetGroupBadgeValue(group);
+	}
+
+	return totalSum;
+}
+
+
+int Day3::GetGroupBadgeValue(std::vector<std::string> bagLines)
+{
+	std::vector<std::unordered_set<int>> groupSets = std::vector<std::unordered_set<int>>();
+	
+	for (auto &bag : bagLines) {
+		groupSets.push_back(GetSet(bag));
+	}
+
+
+	return GetOverlapSum(groupSets);
 }
 
 int Day3::GetPriority(char c)
@@ -65,3 +106,24 @@ int Day3::GetOverlapSum(std::unordered_set<int> leftPouchSet, std::unordered_set
 	return sum;
 }
 
+int Day3::GetOverlapSum(std::vector<std::unordered_set<int>> bagSets) {
+	int sum = 0;
+
+	for (const auto& elem : bagSets[0]) {
+		bool containedInAll = true;
+		for (size_t i = 1; i < bagSets.size(); i++)
+		{
+			if (bagSets[i].find(elem) == bagSets[i].end())
+			{
+				containedInAll = false;
+				break;
+			}
+		}
+
+		if (containedInAll)
+		{
+			sum += elem;
+		}
+	}
+	return sum;
+}

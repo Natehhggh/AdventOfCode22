@@ -15,8 +15,8 @@ int main()
 
 	Day3 day3 = Day3();
 
-	int value = day3.CheckAllBags(lines);
-	
+	//int value = day3.CheckAllBagsPouches(lines);
+	int value = day3.GetAllBadgeValues(lines);
 
 	std::cout <<  "Value: " << value;
 
