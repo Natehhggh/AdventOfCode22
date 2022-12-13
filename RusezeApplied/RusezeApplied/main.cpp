@@ -3,20 +3,21 @@
 #include <vector>
 #include <string>
 #include "Day3.h"
+#include "Day4.h"
 
 int main()
 {
 	int day = 3;
 	FileReader reader = FileReader();
 
-	reader.Read("Data\\Day3.txt");
+	reader.Read("Data\\Day4.txt");
 	
 	std::vector<std::string> lines = reader.Lines();
 
-	Day3 day3 = Day3();
-
+	day4 dayObject = day4();
+	
 	//int value = day3.CheckAllBagsPouches(lines);
-	int value = day3.GetAllBadgeValues(lines);
+	int value = dayObject.GetFirstStar(lines);
 
 	std::cout <<  "Value: " << value;
 

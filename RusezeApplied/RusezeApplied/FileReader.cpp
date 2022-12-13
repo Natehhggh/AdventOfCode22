@@ -14,7 +14,11 @@ void FileReader::Read(std::string filePath)
 	while (!InStream.eof()) {
 		std::string line;
 		getline(InStream, line);
-		lines.push_back(line);
+		if (line !="")
+		{
+			lines.push_back(line);
+		}
+		
 	}
 }
 
