@@ -16,8 +16,7 @@ int main()
 
 	day4 dayObject = day4();
 	
-	//int value = day3.CheckAllBagsPouches(lines);
-	int value = dayObject.GetFirstStar(lines);
+	int value = dayObject.GetSecondStar(lines);
 
 	std::cout <<  "Value: " << value;
 

@@ -41,6 +41,9 @@
     <Text Include="Day3.txt">
       <Filter>Resource Files\Input</Filter>
     </Text>
+    <Text Include="..\Data\Day4.txt">
+      <Filter>Resource Files\Input</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileReader.h">
